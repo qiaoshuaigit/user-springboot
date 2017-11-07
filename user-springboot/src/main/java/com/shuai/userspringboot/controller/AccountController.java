@@ -38,4 +38,10 @@ public class AccountController {
         int t = accountService.update(money, id);
         return t;
     }
+
+    @RequestMapping("/getAccountsByPage")
+    @ResponseBody
+    public List<Account> getAccountsByPage(int pageNum,int pageSize){
+        return accountService.getAccountByPage(pageNum,pageSize);
+    }
 }

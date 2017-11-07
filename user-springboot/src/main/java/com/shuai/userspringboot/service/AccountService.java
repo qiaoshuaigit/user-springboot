@@ -1,5 +1,6 @@
 package com.shuai.userspringboot.service;
 
+import com.github.pagehelper.PageHelper;
 import com.shuai.userspringboot.dao.IAccountDao;
 import com.shuai.userspringboot.mapper.AccountMapper;
 import com.shuai.userspringboot.model.Account;
@@ -40,6 +41,12 @@ public class AccountService {
     public int update(String money,int id){
         logger.info("money="+money+",id="+id);
        return accountMapper.update(money,id);
+    }
+
+    public List<Account> getAccountByPage(int pageNum,int pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        List<Account> accounts = accountMapper.getAccountByPage();
+        return accounts;
     }
 
 }

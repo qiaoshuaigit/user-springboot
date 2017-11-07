@@ -7,4 +7,8 @@
     <update id="update">
         UPDATE account set money=#{money} WHERE id=#{id}
     </update>
+
+    <select id="getAccountByPage" resultType="com.shuai.userspringboot.model.Account">
+        SELECT * from account
+    </select>
 </mapper>
