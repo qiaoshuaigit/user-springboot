@@ -31,4 +31,11 @@ public class AccountController {
     public List<Account> getAccounts(){
         return accountService.getAllAccount();
     }
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public Object update(String money,int id) {
+        int t = accountService.update(money, id);
+        return t;
+    }
 }

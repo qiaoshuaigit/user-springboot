@@ -1,6 +1,7 @@
 package com.shuai.userspringboot.service;
 
 import com.shuai.userspringboot.dao.IAccountDao;
+import com.shuai.userspringboot.mapper.AccountMapper;
 import com.shuai.userspringboot.model.Account;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,9 @@ public class AccountService {
     @Autowired
     private IAccountDao accountDao;
 
+    @Autowired
+    private AccountMapper accountMapper;
+
     public void insert(String name,String money){
         logger.info("name="+name+",money="+money);
         Account account = new Account();
@@ -30,6 +34,12 @@ public class AccountService {
 
     public List<Account> getAllAccount() {
         return accountDao.findAll();
+    }
+
+
+    public int update(String money,int id){
+        logger.info("money="+money+",id="+id);
+       return accountMapper.update(money,id);
     }
 
 }
