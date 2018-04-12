@@ -4,6 +4,7 @@ import com.shuai.userspringboot.model.Account;
 import com.shuai.userspringboot.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +25,12 @@ public class AccountController {
     public String saveAccount(@RequestParam("name") String name, @RequestParam("money") String money){
         accountService.insert(name, money);
         return "success";
+    }
+
+    @RequestMapping("/toView")
+    public String toView(Model model){
+        model.addAttribute("data","hello world");
+        return "index";
     }
 
     @RequestMapping("/getAccounts")
