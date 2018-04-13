@@ -1,5 +1,6 @@
 package com.shuai.userspringboot.service;
 
+import com.github.pagehelper.PageHelper;
 import com.shuai.userspringboot.dao.IUserDao;
 import com.shuai.userspringboot.mapper.UserMapper;
 import com.shuai.userspringboot.model.User;
@@ -20,7 +21,10 @@ public class UserService {
     private UserMapper userMapper;
 
 
-    public List<User> getUsers(){
+    public List<User> getUsers(int pageNum,int pageSize){
+        //添加分页
+        PageHelper.startPage(pageNum,pageSize);
+
         return userDao.getUsers();
     }
 

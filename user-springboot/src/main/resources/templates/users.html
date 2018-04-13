@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+
+<table>
+
+    <th>用户名</th><th>年龄</th><th>地址</th>
+    <tr th:each="s:${users}">
+        <td th:text="${s.name}"/>
+        <td th:text="${s.age}"/>
+        <td th:text="${s.address}"/>
+    </tr>
+
+
+</table>
+
+
+
+</body>
+</html>
