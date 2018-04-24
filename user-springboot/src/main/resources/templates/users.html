@@ -15,20 +15,8 @@
 <body>
 
 
-<table>
-
-    <th>用户名</th><th>年龄</th><th>地址</th>
-    <tr th:each="s:${users}">
-        <td th:text="${s.name}"/>
-        <td th:text="${s.age}"/>
-        <td th:text="${s.address}"/>
-    </tr>
-
-</table>
-
-
     <table class="table table-striped">
-        <caption>条纹表格布局</caption>
+        <caption>人员表1</caption>
         <thead>
         <tr>
             <th>姓名</th>
@@ -37,23 +25,31 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Tanmay</td>
-            <td>Bangalore</td>
-            <td>560001</td>
-        </tr>
-        <tr>
-            <td>Sachin</td>
-            <td>Mumbai</td>
-            <td>400003</td>
-        </tr>
-        <tr>
-            <td>Uma</td>
-            <td>Pune</td>
-            <td>411027</td>
+        <tr th:each="user:${users}">
+            <td th:text="${user.name}"/>
+            <td th:text="${user.age}"/>
+            <td th:text="${user.address}"/>
         </tr>
         </tbody>
     </table>
+    <ul class="pagination">
+
+        <!-- 迭代生成页码 -->
+        <li class="page-item" data-th-each="i : ${#numbers.sequence(1, 5)}"
+            data-th-classappend="${(3 + 1) eq i} ? 'active' : ''" >
+            <a class="page-link" data-th-attr="pageIndex=${i} - 1" href="javascript:void(0);">
+                <span data-th-text="${i}"></span>
+            </a>
+        </li>
+
+        <!--<li><a href="#">&laquo;</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li class="disabled"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>-->
+    </ul>
 
 </body>
 </html>

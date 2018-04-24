@@ -18,15 +18,15 @@ import java.util.List;
  **/
 @RequestMapping("/user")
 @Controller
-public class UserController extends SpringBootServletInitializer {
+public class UserController/* extends SpringBootServletInitializer */{
 
     @Autowired
     private UserService userService;
 
-    @Override
+   /* @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(UserController.class);
-    }
+    }*/
 
     @ResponseBody
     @RequestMapping("/getUsers")
