@@ -1,31 +1,44 @@
 package com.study.sgg.config;
 
 import com.study.sgg.config.filter.MyFileter;
+import com.study.sgg.config.listener.MyListener;
 import com.study.sgg.config.servlet.MyServlet;
+import com.study.sgg.config.servlet.Myservlet1;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.WebApplicationInitializer;
 
-import javax.servlet.DispatcherType;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import java.util.Arrays;
 
 /**
  * @author shuaion 2018/4/24
  *
  *服务器相关得配置
+ *
+ * If convention-based mapping is not flexible enough you can use the
+ * ServletRegistrationBean, FilterRegistrationBean and ServletListenerRegistrationBean
+ * classes for complete control.
  **/
 @Configuration
 public class MyServerConfiguration {
 
+    @Bean
+    public ServletRegistrationBean myservlet1(){
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
+        servletRegistrationBean.setServlet(new Myservlet1());
+        servletRegistrationBean.addUrlMappings("/myservlet1");
+        return servletRegistrationBean;
+    }
 
     @Bean
     public ServletListenerRegistrationBean myListener(){
+
         ServletListenerRegistrationBean registrationBean = new ServletListenerRegistrationBean();
+
         registrationBean.setListener(new MyListener());
 
         return registrationBean;

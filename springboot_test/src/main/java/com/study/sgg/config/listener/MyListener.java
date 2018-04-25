@@ -1,4 +1,4 @@
-package com.study.sgg.config;
+package com.study.sgg.config.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
