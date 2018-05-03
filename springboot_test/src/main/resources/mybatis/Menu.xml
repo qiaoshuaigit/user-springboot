@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.sgg.mapper.MenuMapper">
+
+    <!--
+     public List<Menu> getMenus();
+
+    public void insertMenu();
+    -->
+    <select id="getMenus" resultType="com.study.sgg.model.Menu">
+        select * from menu
+    </select>
+    
+    <insert id="insertMenu" parameterType="com.study.sgg.model.Menu">
+        insert into menu(name,url,status,parent_id)
+        VALUES (#{name},#{url},#{status},#{parentId})
+    </insert>
+</mapper>
