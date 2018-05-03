@@ -3,12 +3,17 @@ package com.study.sgg.controller;
 import com.study.sgg.mapper.MenuMapper;
 import com.study.sgg.mapper.StudentMapper;
 import com.study.sgg.mapper.UserMapper;
+import com.study.sgg.model.Element;
 import com.study.sgg.model.Menu;
+import com.study.sgg.repository.ElementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.persistence.criteria.CriteriaBuilder;
 
 /**
  * @author shuaion 2018/4/28
@@ -24,6 +29,9 @@ public class IndexController {
 
     @Autowired
     private MenuMapper menuMapper;
+
+    @Autowired
+    private ElementRepository elementRepository;
 
     @ResponseBody
     @RequestMapping("/getStudent")
@@ -48,5 +56,15 @@ public class IndexController {
     public Object insertMenu(Menu menu){
         menuMapper.insertMenu(menu);
         return menuMapper.getMenus();
+    }
+    @ResponseBody
+    @RequestMapping("/getElement")
+    public Object getElement(Integer id){
+        return elementRepository.findById(id);
+    }
+    @ResponseBody
+    @RequestMapping("/insertElement")
+    public Object insertElement(Element element){
+        return elementRepository.save(element);
     }
 }
