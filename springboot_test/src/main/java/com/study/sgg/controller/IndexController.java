@@ -7,6 +7,8 @@ import com.study.sgg.mapper.UserMapper;
 import com.study.sgg.model.Element;
 import com.study.sgg.model.Menu;
 import com.study.sgg.repository.ElementRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,8 @@ import javax.persistence.criteria.CriteriaBuilder;
  **/
 @Controller
 public class IndexController {
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private StudentMapper studentMapper;
@@ -52,6 +56,12 @@ public class IndexController {
     @ResponseBody
     @GetMapping("/getMenu")
     public Object getMenu(){
+        logger.trace("logger.trace");
+        logger.debug("logger.debug");
+        logger.info("logger.info");
+        logger.warn("logger.warn");
+        logger.error("logger.error");
+
         return menuMapper.getMenus();
     }
 
