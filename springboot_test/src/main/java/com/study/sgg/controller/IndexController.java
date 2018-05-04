@@ -1,5 +1,6 @@
 package com.study.sgg.controller;
 
+import com.auto.shuai.service.HelloService;
 import com.study.sgg.mapper.MenuMapper;
 import com.study.sgg.mapper.StudentMapper;
 import com.study.sgg.mapper.UserMapper;
@@ -32,6 +33,9 @@ public class IndexController {
 
     @Autowired
     private ElementRepository elementRepository;
+
+    @Autowired
+    private HelloService helloService;
 
     @ResponseBody
     @RequestMapping("/getStudent")
@@ -66,5 +70,11 @@ public class IndexController {
     @RequestMapping("/insertElement")
     public Object insertElement(Element element){
         return elementRepository.save(element);
+    }
+
+    @ResponseBody
+    @RequestMapping("/hello")
+    public Object sayHello(){
+        return helloService.sayHello("shuaige");
     }
 }

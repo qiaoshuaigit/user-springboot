@@ -1,5 +1,6 @@
 package com.study.sgg;
 
+import com.auto.shuai.service.HelloService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,13 @@ public class SpringbootTestApplicationTests {
 
 	@Autowired
 	DataSource dataSource;
+
+
+	private HelloService helloService;
+
+	public void test1(){
+		helloService.sayHello("帅哥");
+	}
 
 	@Test
 	public void contextLoads() {
