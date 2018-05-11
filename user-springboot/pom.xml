@@ -91,13 +91,13 @@
 
     <dependencies>
 
-        <!--开启热部署功能
+        <!--开启热部署功能 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-        -->
+
         <!-- 引入bootstrap -->
         <dependency>
             <groupId>org.webjars</groupId>
